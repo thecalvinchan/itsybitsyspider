@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E79F62219063B1600F26E05 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F62119063B1600F26E05 /* main.cpp */; };
 		3E79F62419063B1600F26E05 /* CS174_Lab1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E79F62319063B1600F26E05 /* CS174_Lab1.1 */; };
+		3E79F62B19063B3800F26E05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E79F62A19063B3800F26E05 /* OpenGL.framework */; };
+		3E79F62D19063B3E00F26E05 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E79F62C19063B3E00F26E05 /* GLUT.framework */; };
+		3E79F68F19063D7500F26E05 /* anim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F67B19063D7500F26E05 /* anim.cpp */; };
+		3E79F69019063D7500F26E05 /* Ball.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F67C19063D7500F26E05 /* Ball.cxx */; };
+		3E79F69119063D7500F26E05 /* BallAux.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F67E19063D7500F26E05 /* BallAux.cxx */; };
+		3E79F69219063D7500F26E05 /* BallMath.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68019063D7500F26E05 /* BallMath.cxx */; };
+		3E79F69319063D7500F26E05 /* FrameSaver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68219063D7500F26E05 /* FrameSaver.cpp */; };
+		3E79F69419063D7500F26E05 /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68519063D7500F26E05 /* InitShader.cpp */; };
+		3E79F69519063D7500F26E05 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68719063D7500F26E05 /* Shapes.cpp */; };
+		3E79F69619063D7500F26E05 /* tga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68919063D7500F26E05 /* tga.cpp */; };
+		3E79F69719063D7500F26E05 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E79F68B19063D7500F26E05 /* Timer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +36,32 @@
 
 /* Begin PBXFileReference section */
 		3E79F61E19063B1600F26E05 /* CS174 Lab1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS174 Lab1"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E79F62119063B1600F26E05 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3E79F62319063B1600F26E05 /* CS174_Lab1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CS174_Lab1.1; sourceTree = "<group>"; };
+		3E79F62A19063B3800F26E05 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		3E79F62C19063B3E00F26E05 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		3E79F67619063D7500F26E05 /* Angel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Angel.h; sourceTree = "<group>"; };
+		3E79F67719063D7500F26E05 /* CheckError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckError.h; sourceTree = "<group>"; };
+		3E79F67919063D7500F26E05 /* mat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat.h; sourceTree = "<group>"; };
+		3E79F67A19063D7500F26E05 /* vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec.h; sourceTree = "<group>"; };
+		3E79F67B19063D7500F26E05 /* anim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = anim.cpp; sourceTree = "<group>"; };
+		3E79F67C19063D7500F26E05 /* Ball.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cxx; sourceTree = "<group>"; };
+		3E79F67D19063D7500F26E05 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		3E79F67E19063D7500F26E05 /* BallAux.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallAux.cxx; sourceTree = "<group>"; };
+		3E79F67F19063D7500F26E05 /* BallAux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallAux.h; sourceTree = "<group>"; };
+		3E79F68019063D7500F26E05 /* BallMath.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallMath.cxx; sourceTree = "<group>"; };
+		3E79F68119063D7500F26E05 /* BallMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallMath.h; sourceTree = "<group>"; };
+		3E79F68219063D7500F26E05 /* FrameSaver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameSaver.cpp; sourceTree = "<group>"; };
+		3E79F68319063D7500F26E05 /* FrameSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameSaver.h; sourceTree = "<group>"; };
+		3E79F68419063D7500F26E05 /* fshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fshader.glsl; sourceTree = "<group>"; };
+		3E79F68519063D7500F26E05 /* InitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitShader.cpp; sourceTree = "<group>"; };
+		3E79F68619063D7500F26E05 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		3E79F68719063D7500F26E05 /* Shapes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shapes.cpp; sourceTree = "<group>"; };
+		3E79F68819063D7500F26E05 /* Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shapes.h; sourceTree = "<group>"; };
+		3E79F68919063D7500F26E05 /* tga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tga.cpp; sourceTree = "<group>"; };
+		3E79F68A19063D7500F26E05 /* tga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tga.h; sourceTree = "<group>"; };
+		3E79F68B19063D7500F26E05 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		3E79F68C19063D7500F26E05 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		3E79F68D19063D7500F26E05 /* vshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vshader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E79F62D19063B3E00F26E05 /* GLUT.framework in Frameworks */,
+				3E79F62B19063B3800F26E05 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +80,8 @@
 		3E79F61519063B1600F26E05 = {
 			isa = PBXGroup;
 			children = (
+				3E79F62C19063B3E00F26E05 /* GLUT.framework */,
+				3E79F62A19063B3800F26E05 /* OpenGL.framework */,
 				3E79F62019063B1600F26E05 /* CS174 Lab1 */,
 				3E79F61F19063B1600F26E05 /* Products */,
 			);
@@ -60,10 +98,40 @@
 		3E79F62019063B1600F26E05 /* CS174 Lab1 */ = {
 			isa = PBXGroup;
 			children = (
-				3E79F62119063B1600F26E05 /* main.cpp */,
+				3E79F67519063D7500F26E05 /* Angel */,
+				3E79F67B19063D7500F26E05 /* anim.cpp */,
+				3E79F67C19063D7500F26E05 /* Ball.cxx */,
+				3E79F67D19063D7500F26E05 /* Ball.h */,
+				3E79F67E19063D7500F26E05 /* BallAux.cxx */,
+				3E79F67F19063D7500F26E05 /* BallAux.h */,
+				3E79F68019063D7500F26E05 /* BallMath.cxx */,
+				3E79F68119063D7500F26E05 /* BallMath.h */,
+				3E79F68219063D7500F26E05 /* FrameSaver.cpp */,
+				3E79F68319063D7500F26E05 /* FrameSaver.h */,
+				3E79F68419063D7500F26E05 /* fshader.glsl */,
+				3E79F68519063D7500F26E05 /* InitShader.cpp */,
+				3E79F68619063D7500F26E05 /* README.txt */,
+				3E79F68719063D7500F26E05 /* Shapes.cpp */,
+				3E79F68819063D7500F26E05 /* Shapes.h */,
+				3E79F68919063D7500F26E05 /* tga.cpp */,
+				3E79F68A19063D7500F26E05 /* tga.h */,
+				3E79F68B19063D7500F26E05 /* Timer.cpp */,
+				3E79F68C19063D7500F26E05 /* Timer.h */,
+				3E79F68D19063D7500F26E05 /* vshader.glsl */,
 				3E79F62319063B1600F26E05 /* CS174_Lab1.1 */,
 			);
 			path = "CS174 Lab1";
+			sourceTree = "<group>";
+		};
+		3E79F67519063D7500F26E05 /* Angel */ = {
+			isa = PBXGroup;
+			children = (
+				3E79F67619063D7500F26E05 /* Angel.h */,
+				3E79F67719063D7500F26E05 /* CheckError.h */,
+				3E79F67919063D7500F26E05 /* mat.h */,
+				3E79F67A19063D7500F26E05 /* vec.h */,
+			);
+			path = Angel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +185,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E79F62219063B1600F26E05 /* main.cpp in Sources */,
+				3E79F69219063D7500F26E05 /* BallMath.cxx in Sources */,
+				3E79F69119063D7500F26E05 /* BallAux.cxx in Sources */,
+				3E79F69419063D7500F26E05 /* InitShader.cpp in Sources */,
+				3E79F69019063D7500F26E05 /* Ball.cxx in Sources */,
+				3E79F69719063D7500F26E05 /* Timer.cpp in Sources */,
+				3E79F69519063D7500F26E05 /* Shapes.cpp in Sources */,
+				3E79F69319063D7500F26E05 /* FrameSaver.cpp in Sources */,
+				3E79F69619063D7500F26E05 /* tga.cpp in Sources */,
+				3E79F68F19063D7500F26E05 /* anim.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +303,7 @@
 				3E79F62919063B1600F26E05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
