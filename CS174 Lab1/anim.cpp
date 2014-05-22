@@ -48,6 +48,7 @@
 // especially for animation
 //////////////////////////////////////////////////////
 void drawRing (mat4 model_trans, mat4 view_trans, float segmentWidth, float height, float radius, float thickness);
+void drawRain (mat4 model_trans, mat4 view_trans);
 void renderWing(float by, float bz, mat4 model_trans, mat4 view_trans, int side, float osc);
 void renderLeg(float by, float bz, mat4 model_trans, mat4 view_trans, int leg, int side, float osc);
 
@@ -55,8 +56,8 @@ FrameSaver FrSaver ;
 Timer TM ;
 
 BallData *Arcball = NULL ;
-int Width = 800;
-int Height = 800 ;
+int Width = 500;
+int Height = 500 ;
 int Button = -1 ;
 float Zoom = 1 ;
 int PrevY = 0 ;
@@ -65,7 +66,9 @@ int Animate = 0 ;
 int Recording = 0 ;
 
 float spiderLocX = 0.0f,
-spiderLocY = 0.0f;
+spiderLocY = 0.0f,
+sunLoc = 10.0f,
+rainLoc = 10.0f;
 
 void resetArcball() ;
 void save_image();
@@ -463,9 +466,9 @@ void display(void)
    Your drawing/modeling starts here
 ***************************************************************/
     
-	float groundx = 50.0f,
+	float groundx = 100.0f,
     groundy = 0.1f,
-    groundz = 50.0f;
+    groundz = 100.0f;
     
     float housex = 7.5f,
     housey = 5.0f,
@@ -495,6 +498,18 @@ void display(void)
     set_colour(0.0f, 0.7f, 0.0f);
 	drawCube();
 	model_trans = mvstack.pop();
+    
+    // Model the sun
+    mvstack.push(model_trans);
+    model_trans *= Translate(-45.0f,sunLoc,-50.0f);
+    model_trans *= Scale(5.0f,5.0f,5.0f);
+    model_view = view_trans     * model_trans;
+    set_colour(3.0f,2.0f,0.5f);
+    drawSphere();
+    model_trans = mvstack.pop();
+    
+    // Rain
+    drawRain(model_trans, view_trans);
     
     // Model the house
     model_trans *= Translate(0.0f,2.5f+groundy,0.0f);
@@ -677,18 +692,23 @@ void drawRing (mat4 model_trans, mat4 view_trans, float segmentWidth, float heig
     model_trans = mvstack.pop();
 }
 
-void renderWing(float by, float bz, mat4 model_trans, mat4 view_trans, int side, float osc) {
-    // Left side = 1, Right side = -1
-    float wingx = 0.5f,
-    wingy = 0.1f,
-    wingz = 1.0f;
-    model_trans *= Translate(0.0f, by/2, side*bz/2);
-    model_trans *= RotateX(side*40*osc);
-    model_trans *= Translate(0.0f, wingy/2, side*wingz/2);
-    model_trans *= Scale(wingx,wingy,wingz);
-    model_view = view_trans * model_trans;
-    drawCube();
-    // No need to push and pop onto stack because model_trans passed by value
+void drawRain (mat4 model_trans, mat4 view_trans) {
+    //srand(time(NULL));
+    mvstack.push(model_trans);
+    set_colour(0.0f,3.0f,3.0f);
+    for (int j=0;j<15;j++) {
+        for (int i=0;i<200;i++) {
+            mvstack.push(model_trans);
+            float rainx = rand() % 50;
+            float rainz = rand() % 50;
+            model_trans *= Translate(25-rainx,5.0f*rainLoc+j,25-rainz);
+            model_trans *= Scale(0.05f,.5f,0.05f);
+            model_view = view_trans * model_trans;
+            drawSphere();
+            model_trans = mvstack.pop();
+        }
+    }
+    model_trans = mvstack.pop();
 }
 
 void renderLeg(float by, float bz, mat4 model_trans, mat4 view_trans, int leg, int side, float osc) {
@@ -758,9 +778,40 @@ void idle(void)
         if (TIME>=3 && TIME<8) {
             spiderLocX=TIME-3;
         }
+        if (TIME > 5 && TIME<9) {
+            rainLoc = 9.0-TIME;
+            sunLoc = 10.0-2.5*TIME;
+        }
+        if (TIME > 12 && TIME<16) {
+            rainLoc = -10.0;
+            sunLoc = 0.0+2.5*(TIME-12);
+            eye = vec4(0, 0.0, 50.0,1.0);
+            ref = vec4(0.0, 0.0, 0.0,1.0);
+        }
+        
+        if (TIME>16 && TIME<21) {
+            Zoom=1.5;
+            ref = vec4(7.5/2,-1.0,5.0/4,1.0);
+            eye = vec4(7.5/2+0.3,-1.0,5.0/4+0.1,1.0);
+            spiderLocX=TIME-16;
+        }
+        
+        if (TIME>21 && TIME<25) {
+            ref = vec4(7.5/2,-1.0+(TIME-21),5.0/4,1.0);
+            eye = vec4(7.5/2+0.3,-1.0+(TIME-21),5.0/4+0.1,1.0);
+        }
+        
+        if (TIME>25) {
+            spiderLocY=5+(0.4*3)+0.2;
+            ref = vec4(7.5/2,-1.0+(4),5.0/4,1.0);
+            eye = vec4(7.5/2+0.3,-1.0+(4),5.0/4+0.1,1.0);
+        }
         
         if (TIME>8 && TIME<10) {
             glClearColor( 0.45, 0.45, 0.5, 1.0 );
+        }
+        if (TIME>14) {
+            glClearColor( 0.3, 0.3, 0.8, 1.0 );
         }
         
         
